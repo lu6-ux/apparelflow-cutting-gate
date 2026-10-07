@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: apparelflow-cutting-gate
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false   # paste your Neon / Supabase / Render Postgres connection string
